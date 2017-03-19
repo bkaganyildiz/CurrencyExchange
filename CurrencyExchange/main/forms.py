@@ -11,7 +11,7 @@ def getCurrencyChoices():
 class CurrencyConverterForm(forms.Form) :
     currency1 = forms.ChoiceField(required=True,label="From Currency")
     currency2 = forms.ChoiceField(required=True, label="To Currency")
-    amount    = forms.CharField(widget=forms.TextInput(attrs={'type':'number'}))
+    amount    = forms.CharField(widget=forms.TextInput(attrs={'type':'number' ,'step':'0.0001','min':'0'}))
     def __init__(self, *args, **kwargs):
         super(CurrencyConverterForm, self).__init__(*args, **kwargs)
         self.fields['currency1'].choices = getCurrencyChoices()
